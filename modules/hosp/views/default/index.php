@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = [
 $this->params['breadcrumbs'][] = $this->title;
 
 $menu = [];
-$menu[] = ['url' => '/hosp/transplantregister/index', 'name' => 'ทะเบียนผู้บริจาคอวัยวะ'];
+$menu[] = ['url' => '/hosp/default/showcase', 'name' => 'ทะเบียนผู้บริจาคอวัยวะ'];
 $menu[] = ['url' => '/hosp/default/newcase', 'name' => 'ผู้บริจาคอวัยวะ (รายใหม่)'];
 //$menu[] = ['url' => '/hosp/transplantregister/index', 'name' => 'ใบแสดงความจำนงบริจาคอวัยวะ'];
 $menu[] = ['url' => '/hosp/transplantregister/index', 'name' => 'ทดสอบ'];
