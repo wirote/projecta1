@@ -22,6 +22,7 @@ Thumbs.db
 /web/assets
 /web/css
 /web/material
+/web/img
 /web/js
 
 
@@ -29,9 +30,9 @@ Thumbs.db
 composer.phar
 composer.json
 bsc2011-data.sql
-index.php
+/web/index.php
 requirements.php
-index.php
+/index.php
 
 
 # Mac DS_Store Files

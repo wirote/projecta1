@@ -37,8 +37,8 @@ $this->title = Yii::$app->name;
     /**** Menu Section ****/
     $menubar = [];
     $menubar[] = ['label' => 'Home', 'url' => ['/site/index']] ;
-    $menubar[] = ['label' => 'About', 'url' => ['/site/about']] ;
-    $menubar[] = ['label' => 'Contact', 'url' => ['/site/contact']] ;
+    $menubar[] = ['label' => 'Report', 'url' => ['/site/about']] ;
+    $menubar[] = ['label' => 'Hospital', 'url' => ['/hosp/default/index']] ;
     $menubar[] = Yii::$app->user->isGuest ?
             ['label' => Icon::show('sign-in').'Sign In', 'url' => ['/user/security/login']] :
             ['label'=>Icon::show('cogs').'System',
