@@ -30,8 +30,12 @@ class DefaultController extends Controller {
         $model = new Transplantregister();
         
         if ($model->load(Yii::$app->request->post())) {
-             $birthdate = substr($_POST['birthdate'], 7,4).substr($_POST['birthdate'], 4,2).substr($_POST['birthdate'], 1,2) ;
-             $model->birthdate = $birthdate;
+             $birth = $model->birthdate ;
+            $regis = $model->dateregister ;
+            $birthdate = substr($birth, 6, 4) - 543 .'-'. substr($birth, 3, 2) .'-'. substr($birth, 0, 2) ;
+            $regisdate = substr($regis, 6, 4) - 543 .'-'. substr($regis, 3, 2) .'-'. substr($regis, 0, 2) ;
+            $model->birthdate = $birthdate;
+            $model->dateregister = $regisdate;
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }

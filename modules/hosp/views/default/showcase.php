@@ -3,16 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules\hosp\models\TransplantregisterSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Transplantregisters';
+$this->title = 'ทะเบียนผู้บริจาคอวัยวะ';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="transplantregister-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h2><?= Html::encode($this->title) ?></h2>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -24,12 +20,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'pname',
             'fname',
             'lname',
             'birthdate',
-            // 'cid',
+             'cid',
             // 'occupation',
             // 'houseid',
             // 'moo',

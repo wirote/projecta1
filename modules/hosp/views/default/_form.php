@@ -7,7 +7,12 @@ use yii\helpers\ArrayHelper;
 use app\modules\hosp\models\LibChw;
 use app\modules\hosp\models\LibAmp;
 use app\modules\hosp\models\LibTmb;
+use app\components\Udf;
 
+$dateregis = isset($model->dateregister) ? $model->dateregister : date('Y-m-d');
+$dateregis = Udf::buddist($dateregis);
+$datebirth = isset($model->birthdate) ? $model->birthdate : date('Y-m-d');
+$datebirth = Udf::buddist($datebirth);
 ?>
 
 <div class="transplantregister-form">
@@ -18,7 +23,8 @@ use app\modules\hosp\models\LibTmb;
     <?=
     $form->field($model, 'dateregister')->textInput([
         'data-provide' => "datepicker",
-        'data-date-language' => "th-th"
+        'data-date-language' => "th-th",
+        'value'=>$dateregis
     ])
     ?>
         </div>
@@ -37,7 +43,8 @@ use app\modules\hosp\models\LibTmb;
             <?=
             $form->field($model, 'birthdate')->textInput([
                 'data-provide' => "datepicker",
-                'data-date-language' => "th-th"
+                'data-date-language' => "th-th",
+                'value'=>$datebirth
             ])
             ?>
         </div>
@@ -72,7 +79,7 @@ use app\modules\hosp\models\LibTmb;
             <?=
                     $form->field($model, 'changwat')
         ->dropDownList($model->getChwlist(),[
-            'prompt'=>'-- โปรดเลือกจังหวัด --',
+            'prompt'=>' -- โปรดเลือกจังหวัด -- ',
             'onchange' => '$.post("amplist?chwpart='.'"+$(this).val(),
             function(data){$("select#transplantregister-ampur").html(data);
             });'

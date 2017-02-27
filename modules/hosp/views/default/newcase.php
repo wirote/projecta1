@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\modules\hosp\models\Transplantregister */
 
 $this->title = 'ลงทะเบียนผู้บริจาคอวัยวะรายใหม่';
-$this->params['breadcrumbs'][] = ['label' => 'Transplantregisters', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'เมนูระบบทะเบียน', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="transplantregister-create">
