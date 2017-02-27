@@ -118,4 +118,7 @@ class DefaultController extends Controller {
         return;
     }
 
+    public function actionPrint() {
+        
+    }
 }
