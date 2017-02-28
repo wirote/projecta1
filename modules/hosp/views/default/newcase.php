@@ -11,8 +11,10 @@ $this->params['breadcrumbs'][] = ['label' => 'เมนูระบบทะเ�
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="transplantregister-create">
-    <h3 class="alert alert-info" style="text-align: center"><?= Html::encode($this->title) ?></h3>
-
+    <div class="row">
+        <h3 class="alert alert-info" style="text-align: center"><?= Html::encode($this->title) ?></h3>
+    </div>
+    
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

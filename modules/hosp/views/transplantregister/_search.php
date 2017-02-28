@@ -67,9 +67,17 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'donor') ?>
 
+    <?php // echo $form->field($model, 'requester') ?>
+
+    <?php // echo $form->field($model, 'telrequest') ?>
+
     <?php // echo $form->field($model, 'man1') ?>
 
+    <?php // echo $form->field($model, 'telman1') ?>
+
     <?php // echo $form->field($model, 'man2') ?>
+
+    <?php // echo $form->field($model, 'telman2') ?>
 
     <?php // echo $form->field($model, 'dateregister') ?>
 

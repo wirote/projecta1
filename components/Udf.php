@@ -18,6 +18,19 @@ class Udf extends Component {
         return $strDay . ' ' . $strMonthThai . ' ' . $strYear;
     }
 
+    public static function thailongdate($date) {
+        $strYear = date("Y", strtotime($date)) + 543;
+        $strMonth = date("n", strtotime($date));
+        $strDay = date("j", strtotime($date));
+        $strMonthCut = ["",
+            "มกราคม", "กุมพาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", 
+            "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"
+        ];
+        $strMonthThai = $strMonthCut[$strMonth];
+
+        return $strDay . ' ' . $strMonthThai . ' ' . $strYear;
+    }
+
     public static function buddist($date) {
         $strYear = date("Y", strtotime($date)) + 543;
         $strMonth = date("n", strtotime($date));

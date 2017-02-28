@@ -62,9 +62,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'donor')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'requester')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'telrequest')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'man1')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'telman1')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'man2')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'telman2')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'dateregister')->textInput() ?>
 

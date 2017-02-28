@@ -19,7 +19,7 @@ class TransplantregisterSearch extends Transplantregister
     {
         return [
             [['id'], 'integer'],
-            [['pname', 'fname', 'lname', 'birthdate', 'cid', 'occupation', 'houseid', 'moo', 'building', 'soi', 'road', 'tambon', 'ampur', 'changwat', 'postcode', 'telhome', 'telmobile', 'email', 'heart', 'liver', 'renal', 'lung', 'eye', 'allorgan', 'donor', 'man1', 'man2', 'dateregister', 'userregister', 'upd'], 'safe'],
+            [['pname', 'fname', 'lname', 'birthdate', 'cid', 'occupation', 'houseid', 'moo', 'building', 'soi', 'road', 'tambon', 'ampur', 'changwat', 'postcode', 'telhome', 'telmobile', 'email', 'heart', 'liver', 'renal', 'lung', 'eye', 'allorgan', 'donor', 'requester', 'telrequest', 'man1', 'telman1', 'man2', 'telman2', 'dateregister', 'userregister', 'upd'], 'safe'],
         ];
     }
 
@@ -89,8 +89,12 @@ class TransplantregisterSearch extends Transplantregister
             ->andFilterWhere(['like', 'eye', $this->eye])
             ->andFilterWhere(['like', 'allorgan', $this->allorgan])
             ->andFilterWhere(['like', 'donor', $this->donor])
+            ->andFilterWhere(['like', 'requester', $this->requester])
+            ->andFilterWhere(['like', 'telrequest', $this->telrequest])
             ->andFilterWhere(['like', 'man1', $this->man1])
+            ->andFilterWhere(['like', 'telman1', $this->telman1])
             ->andFilterWhere(['like', 'man2', $this->man2])
+            ->andFilterWhere(['like', 'telman2', $this->telman2])
             ->andFilterWhere(['like', 'userregister', $this->userregister]);
 
         return $dataProvider;

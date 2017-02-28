@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 $this->title = 'ทะเบียนผู้บริจาคอวัยวะ';
 $this->params['breadcrumbs'][] = $this->title;
@@ -19,7 +20,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            [
+                'label' => 'พิมพ์',
+                'format'=>'raw',
+                'value'=> function ($model) {
+                    return Html::a(Html::img( Url::base(). '/img/printer.png', ['width'=>25,'height'=>25]), ['printer','id'=>$model->id]);
+                }
+            ],
+            [
+                'label' => 'แก้ไข',
+                'format'=>'raw',
+                'value'=> function ($model) {
+                    return Html::a(Html::img( Url::base(). '/img/edit.png', ['width'=>25,'height'=>25]), ['update','id'=>$model->id]);
+                }
+            ],
             //'id',
             'pname',
             'fname',
@@ -51,8 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'dateregister',
             // 'userregister',
             // 'upd',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
