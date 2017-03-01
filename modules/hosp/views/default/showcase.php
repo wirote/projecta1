@@ -3,8 +3,10 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
+use app\components\Udf;
 
 $this->title = 'ทะเบียนผู้บริจาคอวัยวะ';
+$this->params['breadcrumbs'][] = ['label' => 'เมนูระบบทะเบียน', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="transplantregister-index">
@@ -13,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Transplantregister', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('เพิ่ม ผู้บริจาครายใหม่', ['newcase'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -38,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'pname',
             'fname',
             'lname',
-            'birthdate',
+            //'birthdate',
              'cid',
             // 'occupation',
             // 'houseid',

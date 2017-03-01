@@ -38,7 +38,7 @@ $this->title = Yii::$app->name;
     $menubar = [];
     $menubar[] = ['label' => 'Home', 'url' => ['/site/index']] ;
     $menubar[] = ['label' => 'Report', 'url' => ['/site/about']] ;
-    $menubar[] = ['label' => 'Hospital', 'url' => ['/hosp/default/index']] ;
+    $menubar[] = ['label' => 'Registration', 'url' => ['/hosp/default/index']] ;
     $menubar[] = Yii::$app->user->isGuest ?
             ['label' => Icon::show('sign-in').'Sign In', 'url' => ['/user/security/login']] :
             ['label'=>Icon::show('cogs').'System',

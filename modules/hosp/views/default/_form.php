@@ -3,16 +3,22 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
+use app\components\Udf;
+
 use app\modules\hosp\models\LibChw;
 use app\modules\hosp\models\LibAmp;
 use app\modules\hosp\models\LibTmb;
-use app\components\Udf;
 
 $dateregis = isset($model->dateregister) ? $model->dateregister : date('Y-m-d');
 $dateregis = Udf::buddist($dateregis);
 $datebirth = isset($model->birthdate) ? $model->birthdate : date('Y-m-d');
 $datebirth = Udf::buddist($datebirth);
 $dateupd = date('Y-m-d H:i:s');
+$uregis = Yii::$app->user->identity->username;
+/*
+$hcode = '';
+$chwcode = '';
+*/
 ?>
 
 <div class="transplantregister-form">
@@ -176,10 +182,10 @@ $dateupd = date('Y-m-d H:i:s');
         <?= $form->field($model, 'telman2')->textInput(['maxlength' => true]) ?>
     </div>
 </div>
-
-<?= $form->field($model, 'userregister')->hiddenInput()->label(false) ?>
-
-    <?= $form->field($model, 'upd')->hiddenInput()->label(false) ?>
+<?= $form->field($model, 'userregister')->hiddenInput(['value'=>$uregis])->label(false) ?>
+<?= $form->field($model, 'hcoderegister')->hiddenInput(['value'=>$hcode])->label(false) ?>
+<?= $form->field($model, 'chwcoderegister')->hiddenInput(['value'=>$chwcode])->label(false) ?>
+<?= $form->field($model, 'upd')->hiddenInput()->label(false) ?>
 
 <div class="form-group">
 <?= Html::submitButton($model->isNewRecord ? 'ลงทะเบียน' : 'ปรับปรุงข้อมูล', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

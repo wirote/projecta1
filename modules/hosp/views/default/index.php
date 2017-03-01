@@ -1,8 +1,6 @@
 <?php
-use yii\helpers\Html;
-
-$name = isset($_GET['name']) ? $_GET['name'] : 'Hospital System';
-$menuname = 'Hospital System';
+$name = isset($_GET['name']) ? $_GET['name'] : 'Register System';
+$menuname = 'Register System';
 $this->title = $name ;
 /*
 $this->params['breadcrumbs'][] = [
@@ -13,25 +11,48 @@ $this->params['breadcrumbs'][] = [
     ]
 ];
 */
-
 $this->params['breadcrumbs'][] = $this->title;
+use kartik\grid\GridView;
+use yii\helpers\Html;
 
-$menu = [];
-$menu[] = ['url' => '/hosp/default/showcase', 'name' => 'ทะเบียนผู้บริจาคอวัยวะ'];
-$menu[] = ['url' => '/hosp/default/newcase', 'name' => 'ผู้บริจาคอวัยวะ (รายใหม่)'];
-//$menu[] = ['url' => '/hosp/transplantregister/index', 'name' => 'ใบแสดงความจำนงบริจาคอวัยวะ'];
-$menu[] = ['url' => '/hosp/transplantregister/index', 'name' => 'ทดสอบ'];
 ?>
-<table class="table table-responsive table-striped table-hover">
-    <thead><tr class="success">
-            <th style="text-align: center">#</th><th>เมนู</th>
-        </tr></thead>
-    <tbody>
-        <?php for ($i = 0; $i < count($menu); $i++) { ?>
-            <tr>
-                <td style="text-align: center; color: #009587"><i class="fa fa-hand-o-right" aria-hidden="true"></i></td>
-                <td><?= Html::a($menu[$i]['name'], [$menu[$i]['url'], 'name' => $menu[$i]['name'], 'amenu' => 'SP']) ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-</table>
+<?php
+$gridcolumns = [];
+$gridcolumns[] = [
+            'label' =>'#',
+            'headerOptions' => ['class'=>'text-center'],
+            'contentOptions' => ['class'=>'text-center', 'style'=>'color:#009587'],
+            'format' => 'raw',
+            'value' => function () {
+                return '<i class="fa fa-hand-o-right" aria-hidden="true"></i>';
+            }
+        ];
+$gridcolumns[] = [
+            'label'=>'เมนู',
+            'attribute'=>'name',
+            'format'=>'raw',
+            'value' => function ($model) {
+                return Html::a(
+                    $model['namemenu'],[
+                        $model['linkmenu'],
+                        'name'=>$model['namemenu']
+                    ]
+                );
+            },
+        ];
+
+?>
+<div class="default-index">
+<?=GridView::widget([
+    'dataProvider'=>$dataProvider,
+    'summary'=>'',
+    'bordered'=>FALSE,
+    'striped'=>TRUE,
+    'condensed'=>FALSE,
+    'responsive'=>TRUE,
+    'hover'=>TRUE,
+    'floatHeader'=>true,
+    'headerRowOptions'=>['class'=>'success'],
+    'columns' => $gridcolumns,
+]); ?>
+</div>

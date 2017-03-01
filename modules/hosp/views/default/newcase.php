@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 
-
 /* @var $this yii\web\View */
 /* @var $model app\modules\hosp\models\Transplantregister */
 
@@ -14,14 +13,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <h3 class="alert alert-info" style="text-align: center"><?= Html::encode($this->title) ?></h3>
     </div>
-    
-    <?= $this->render('_form', [
+
+    <?=
+    $this->render('_form', [
         'model' => $model,
-    ]) ?>
+        'hcode' => $hcode,
+        'chwcode' => $chwcode,
+    ])
+    ?>
 
 </div>
 <script>
     function demo() {
         $('.datepicker').datepicker();
-      }
+    }
 </script>

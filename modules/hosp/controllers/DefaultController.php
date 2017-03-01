@@ -10,15 +10,25 @@ use yii\data\ArrayDataProvider;
 use yii\data\ActiveDataProvider;
 use kartik\mpdf\Pdf;
 /* Model */
+use app\modules\wirote\models\SysMenu;
 use app\modules\hosp\models\Transplantregister;
 use app\modules\hosp\models\TransplantregisterSearch;
 use app\modules\hosp\models\LibAmp;
 use app\modules\hosp\models\LibTmb;
+use dektrium\user\models\Profile;
 
 class DefaultController extends Controller {
 
     public function actionIndex() {
-        return $this->render('index');
+        $menu = SysMenu::find()
+                ->where('used=:used and grpmenu=:grp', [':used' => 1, ':grp' => 'TP']);
+        $dataProvider = new ActiveDataProvider([
+            'query' => $menu,
+            'pagination' => FALSE
+        ]);
+        return $this->render('index', [
+                    'dataProvider' => $dataProvider
+        ]);
     }
 
     public function actionShowcase() {
@@ -32,6 +42,10 @@ class DefaultController extends Controller {
     }
 
     public function actionNewcase() {
+        /*********/
+        $id = Yii::$app->user->id;
+        $profdata = Profile::find()->where('user_id =:id', [':id'=> $id])->one();
+        /*********/
         $model = new Transplantregister();
         
         if ($model->load(Yii::$app->request->post())) {
@@ -46,7 +60,9 @@ class DefaultController extends Controller {
             }
         } else {
             return $this->render('newcase', [
-                        'model' => $model,
+                'model' => $model,
+                'hcode' =>$profdata->hcode,
+                'chwcode' =>$profdata->chwcode,
             ]);
         }
     }
@@ -56,6 +72,9 @@ class DefaultController extends Controller {
         $birth = isset($_REQUEST['birthdate']) ? $_REQUEST['birthdate'] : date('d-m-Y');
         $birthdate = substr($birth, 6, 4) .'-'. substr($birth, 3, 2) .'-'. substr($birth, 0, 2) ;
         */
+        $id = Yii::$app->user->id;
+        $profdata = Profile::find()->where('user_id =:id', [':id'=> $id])->one();
+        
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
@@ -74,7 +93,9 @@ class DefaultController extends Controller {
             }
         } else {
             return $this->render('update', [
-                        'model' => $model,
+                'model' => $model,
+                'hcode' =>$profdata->hcode,
+                'chwcode' =>$profdata->chwcode,
             ]);
         }
     }

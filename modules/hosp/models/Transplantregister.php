@@ -44,21 +44,19 @@ use yii\helpers\ArrayHelper;
  * @property string $userregister
  * @property string $upd
  */
-class Transplantregister extends \yii\db\ActiveRecord
-{
+class Transplantregister extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
-    public static function tableName()
-    {
+    public static function tableName() {
         return 'transplantregister';
     }
 
     /**
      * @inheritdoc
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             [['birthdate', 'dateregister', 'upd'], 'safe'],
             [['cid'], 'required'],
@@ -69,8 +67,8 @@ class Transplantregister extends \yii\db\ActiveRecord
             [['moo'], 'string', 'max' => 10],
             [['tambon'], 'string', 'max' => 6],
             [['ampur'], 'string', 'max' => 4],
-            [['changwat'], 'string', 'max' => 2],
-            [['postcode'], 'string', 'max' => 5],
+            [['changwat', 'chwcoderegister'], 'string', 'max' => 2],
+            [['postcode', 'hcoderegister'], 'string', 'max' => 5],
             [['telmobile', 'telrequest', 'telman1', 'telman2'], 'string', 'max' => 20],
             [['cid'], 'unique'],
         ];
@@ -79,8 +77,7 @@ class Transplantregister extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
+    public function attributeLabels() {
         return [
             'id' => 'รหัส',
             'pname' => 'คำนำหน้าชื่อ',
@@ -116,31 +113,39 @@ class Transplantregister extends \yii\db\ActiveRecord
             'telman2' => 'โทร.',
             'dateregister' => 'วันที่บริจาค',
             'userregister' => 'ผู้บันทึก',
+            'hcoderegister' => 'โรงพยาบาล',
+            'chwcoderegister' => 'จังหวัด',
             'upd' => 'วันที่บันทึก',
         ];
     }
-    public function getChwlist() {
-	$list = LibChw::find()->where('chwname is not null')->orderBy('chwname')->all();
-	return ArrayHelper::map($list, 'chwpart', 'chwname');
-}
-public function getChw() {
-	return $this->hasOne(LibChw::className(), ['chwpart' => 'changwat']);
-}
-public function getChwName() {
-	return $this->chw ? $this->chw->chwname : 'ไม่พบจังหวัด';
-}
-public function getAmp() {
-	return $this->hasOne(LibAmp::className(), ['amppart' => 'ampur']);
-}
-public function getAmpName() {
-	return $this->amp ? $this->amp->ampname : 'ไม่พบอำเภอ';
-}
-public function getTmb() {
-	return $this->hasOne(LibTmb::className(), ['tmbpart' => 'tambon']);
-}
-public function getTmbName() {
-	return $this->tmb ? $this->tmb->tmbname : 'ไม่พบตำบล';
-}
 
+    public function getChwlist() {
+        $list = LibChw::find()->where('chwname is not null')->orderBy('chwname')->all();
+        return ArrayHelper::map($list, 'chwpart', 'chwname');
+    }
+
+    public function getChw() {
+        return $this->hasOne(LibChw::className(), ['chwpart' => 'changwat']);
+    }
+
+    public function getChwName() {
+        return $this->chw ? $this->chw->chwname : 'ไม่พบจังหวัด';
+    }
+
+    public function getAmp() {
+        return $this->hasOne(LibAmp::className(), ['amppart' => 'ampur']);
+    }
+
+    public function getAmpName() {
+        return $this->amp ? $this->amp->ampname : 'ไม่พบอำเภอ';
+    }
+
+    public function getTmb() {
+        return $this->hasOne(LibTmb::className(), ['tmbpart' => 'tambon']);
+    }
+
+    public function getTmbName() {
+        return $this->tmb ? $this->tmb->tmbname : 'ไม่พบตำบล';
+    }
 
 }
