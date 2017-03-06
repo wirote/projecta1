@@ -25,6 +25,7 @@ $this->title = Yii::$app->name;
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Prompt:300" rel="stylesheet"> 
+    <link rel="shortcut icon" href="<?= Yii::$app->request->baseUrl; ?>/img/GreenRibbon32.ico" type="image/x-icon" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>

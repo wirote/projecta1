@@ -3,14 +3,17 @@
 namespace app\modules\hosp\controllers;
 
 use Yii;
-use app\modules\hosp\models\Transplantregister;
-use app\modules\hosp\models\TransplantregisterSearch;
+use app\modules\hosp\models\Transplantperformance;
+use app\modules\hosp\models\TransplantperformanceSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-class TransplantregisterController extends Controller {
+class TransplantperformanceController extends Controller {
 
+    /**
+     * @inheritdoc
+     */
     public function behaviors() {
         return [
             'verbs' => [
@@ -22,8 +25,12 @@ class TransplantregisterController extends Controller {
         ];
     }
 
+    /**
+     * Lists all Transplantperformance models.
+     * @return mixed
+     */
     public function actionIndex() {
-        $searchModel = new TransplantregisterSearch();
+        $searchModel = new TransplantperformanceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -32,14 +39,24 @@ class TransplantregisterController extends Controller {
         ]);
     }
 
+    /**
+     * Displays a single Transplantperformance model.
+     * @param integer $id
+     * @return mixed
+     */
     public function actionView($id) {
         return $this->render('view', [
                     'model' => $this->findModel($id),
         ]);
     }
 
+    /**
+     * Creates a new Transplantperformance model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
     public function actionCreate() {
-        $model = new Transplantregister();
+        $model = new Transplantperformance();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -50,6 +67,12 @@ class TransplantregisterController extends Controller {
         }
     }
 
+    /**
+     * Updates an existing Transplantperformance model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
     public function actionUpdate($id) {
         $model = $this->findModel($id);
 
@@ -63,7 +86,7 @@ class TransplantregisterController extends Controller {
     }
 
     /**
-     * Deletes an existing Transplantregister model.
+     * Deletes an existing Transplantperformance model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -75,14 +98,14 @@ class TransplantregisterController extends Controller {
     }
 
     /**
-     * Finds the Transplantregister model based on its primary key value.
+     * Finds the Transplantperformance model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Transplantregister the loaded model
+     * @return Transplantperformance the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id) {
-        if (($model = Transplantregister::findOne($id)) !== null) {
+        if (($model = Transplantperformance::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
