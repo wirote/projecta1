@@ -30,6 +30,7 @@ use Yii;
  * @property string $actual1_ward
  * @property string $actual1_date
  * @property string $actual1_time
+ * @property string $actual1_reason
  * @property string $actual2
  * @property string $actual2_ward
  * @property string $actual2_date
@@ -39,6 +40,7 @@ use Yii;
  * @property string $actual2_heart
  * @property string $actual2_lung
  * @property string $actual2_pancreas
+ * @property string $actual2_reason
  * @property string $utilized
  * @property string $utilized_renal
  * @property string $utilized_liver
@@ -67,13 +69,13 @@ class Transplantperformance extends \yii\db\ActiveRecord
         return [
             [['regis_id'], 'required'],
             [['regis_id'], 'integer'],
-            [['potential', 'potential_age', 'potential_hiv', 'potential_infect', 'potential_ca', 'potential_reason', 'eligible_reason', 'actual2_renal', 'actual2_liver', 'actual2_heart', 'actual2_lung', 'actual2_pancreas', 'utilized_renal', 'utilized_liver', 'utilized_heart', 'utilized_lung', 'utilized_pancreas', 'remark'], 'string'],
+            [['potential', 'potential_age', 'potential_hiv', 'potential_infect', 'potential_ca', 'potential_reason', 'eligible', 'eligible_reason', 'actual1', 'actual1_reason', 'actual2', 'actual2_renal', 'actual2_liver', 'actual2_heart', 'actual2_lung', 'actual2_pancreas', 'actual2_reason', 'utilized_renal', 'utilized_liver', 'utilized_heart', 'utilized_lung', 'utilized_pancreas', 'remark'], 'string'],
             [['potential_date', 'eligible_date', 'actual1_date', 'actual2_date', 'dateregister'], 'safe'],
             [['hcode'], 'string', 'max' => 5],
             [['hn', 'an'], 'string', 'max' => 20],
             [['potential_ward', 'eligible_ward', 'actual1_ward', 'actual2_ward'], 'string', 'max' => 100],
             [['potential_time', 'eligible_time', 'actual1_time', 'actual2_time'], 'string', 'max' => 4],
-            [['eligible', 'actual1', 'actual2', 'utilized', 'reporter'], 'string', 'max' => 50],
+            [['utilized', 'reporter'], 'string', 'max' => 50],
         ];
     }
 
@@ -95,7 +97,7 @@ class Transplantperformance extends \yii\db\ActiveRecord
             'potential_age' => 'อายุ > 70 ปี',
             'potential_hiv' => 'ติดเชื้อ  HIV',
             'potential_infect' => 'มีการติดเชื้อที่รุนแรง เช่น Sepsis',
-            'potential_ca' => 'เป็นมะเร็ง (ยกเว้น Brain tumor ที่ไม่มี Metastasis',
+            'potential_ca' => 'เป็นมะเร็ง (ยกเว้น Brain tumor ที่ไม่มี Metastasis)',
             'potential_reason' => 'เหตุผล',
             'eligible' => 'Eligible Donor',
             'eligible_reason' => 'เนื่องจาก',
@@ -106,6 +108,7 @@ class Transplantperformance extends \yii\db\ActiveRecord
             'actual1_ward' => 'หอผุ้ป่วย',
             'actual1_date' => 'วันที่',
             'actual1_time' => 'เวลา',
+            'actual1_reason' => 'เนื่องจาก',
             'actual2' => 'Actual Donor 2',
             'actual2_ward' => 'หอผุ้ป่วย',
             'actual2_date' => 'วันที่',
@@ -115,6 +118,7 @@ class Transplantperformance extends \yii\db\ActiveRecord
             'actual2_heart' => 'หัวใจ',
             'actual2_lung' => 'ปอด',
             'actual2_pancreas' => 'ตับอ่อน',
+            'actual2_reason' => 'เนื่องจาก',
             'utilized' => 'Utilized Donor',
             'utilized_renal' => 'ไต',
             'utilized_liver' => 'ตับ',

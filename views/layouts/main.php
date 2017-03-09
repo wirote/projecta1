@@ -10,9 +10,11 @@ use yii\widgets\Breadcrumbs;
 /*
 use app\assets\AppAsset;
 AppAsset::register($this);
-*/
 use app\assets\MaterialAsset;
 MaterialAsset::register($this);
+*/
+Use app\assets\JournalAsset;
+JournalAsset::register($this);
 use kartik\icons\Icon;
 Icon::map($this);
 
@@ -58,7 +60,8 @@ $this->title = Yii::$app->name;
         'brandLabel' => $this->title,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-default navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-top',
+            //'class' => 'navbar-default navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([

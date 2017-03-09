@@ -19,7 +19,7 @@ class TransplantperformanceSearch extends Transplantperformance
     {
         return [
             [['id', 'regis_id'], 'integer'],
-            [['hcode', 'hn', 'an', 'potential', 'potential_ward', 'potential_date', 'potential_time', 'potential_age', 'potential_hiv', 'potential_infect', 'potential_ca', 'potential_reason', 'eligible', 'eligible_reason', 'eligible_ward', 'eligible_date', 'eligible_time', 'actual1', 'actual1_ward', 'actual1_date', 'actual1_time', 'actual2', 'actual2_ward', 'actual2_date', 'actual2_time', 'actual2_renal', 'actual2_liver', 'actual2_heart', 'actual2_lung', 'actual2_pancreas', 'utilized', 'utilized_renal', 'utilized_liver', 'utilized_heart', 'utilized_lung', 'utilized_pancreas', 'remark', 'reporter', 'dateregister'], 'safe'],
+            [['hcode', 'hn', 'an', 'potential', 'potential_ward', 'potential_date', 'potential_time', 'potential_age', 'potential_hiv', 'potential_infect', 'potential_ca', 'potential_reason', 'eligible', 'eligible_reason', 'eligible_ward', 'eligible_date', 'eligible_time', 'actual1', 'actual1_ward', 'actual1_date', 'actual1_time', 'actual1_reason', 'actual2', 'actual2_ward', 'actual2_date', 'actual2_time', 'actual2_renal', 'actual2_liver', 'actual2_heart', 'actual2_lung', 'actual2_pancreas', 'actual2_reason', 'utilized', 'utilized_renal', 'utilized_liver', 'utilized_heart', 'utilized_lung', 'utilized_pancreas', 'remark', 'reporter', 'dateregister'], 'safe'],
         ];
     }
 
@@ -86,6 +86,7 @@ class TransplantperformanceSearch extends Transplantperformance
             ->andFilterWhere(['like', 'actual1', $this->actual1])
             ->andFilterWhere(['like', 'actual1_ward', $this->actual1_ward])
             ->andFilterWhere(['like', 'actual1_time', $this->actual1_time])
+            ->andFilterWhere(['like', 'actual1_reason', $this->actual1_reason])
             ->andFilterWhere(['like', 'actual2', $this->actual2])
             ->andFilterWhere(['like', 'actual2_ward', $this->actual2_ward])
             ->andFilterWhere(['like', 'actual2_time', $this->actual2_time])
@@ -94,6 +95,7 @@ class TransplantperformanceSearch extends Transplantperformance
             ->andFilterWhere(['like', 'actual2_heart', $this->actual2_heart])
             ->andFilterWhere(['like', 'actual2_lung', $this->actual2_lung])
             ->andFilterWhere(['like', 'actual2_pancreas', $this->actual2_pancreas])
+            ->andFilterWhere(['like', 'actual2_reason', $this->actual2_reason])
             ->andFilterWhere(['like', 'utilized', $this->utilized])
             ->andFilterWhere(['like', 'utilized_renal', $this->utilized_renal])
             ->andFilterWhere(['like', 'utilized_liver', $this->utilized_liver])

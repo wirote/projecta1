@@ -61,6 +61,8 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'actual1_time') ?>
 
+    <?php // echo $form->field($model, 'actual1_reason') ?>
+
     <?php // echo $form->field($model, 'actual2') ?>
 
     <?php // echo $form->field($model, 'actual2_ward') ?>
@@ -78,6 +80,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'actual2_lung') ?>
 
     <?php // echo $form->field($model, 'actual2_pancreas') ?>
+
+    <?php // echo $form->field($model, 'actual2_reason') ?>
 
     <?php // echo $form->field($model, 'utilized') ?>
 

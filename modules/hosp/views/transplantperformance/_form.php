@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'potential_reason')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'eligible')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'eligible')->dropDownList([ 2 => '2', 1 => '1', 0 => '0', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'eligible_reason')->textarea(['rows' => 6]) ?>
 
@@ -48,7 +48,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'eligible_time')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'actual1')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'actual1')->dropDownList([ 1 => '1', 0 => '0', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'actual1_ward')->textInput(['maxlength' => true]) ?>
 
@@ -56,7 +56,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'actual1_time')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'actual2')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'actual1_reason')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'actual2')->dropDownList([ 1 => '1', 0 => '0', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'actual2_ward')->textInput(['maxlength' => true]) ?>
 
@@ -73,6 +75,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'actual2_lung')->dropDownList([ 1 => '1', 0 => '0', ], ['prompt' => '']) ?>
 
     <?= $form->field($model, 'actual2_pancreas')->dropDownList([ 1 => '1', 0 => '0', ], ['prompt' => '']) ?>
+
+    <?= $form->field($model, 'actual2_reason')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'utilized')->textInput(['maxlength' => true]) ?>
 
